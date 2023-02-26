@@ -48,11 +48,6 @@
             }
         }
 
-        public Statistics()
-        {
-            this.Saldo = 0;
-        }
-
         public void AddCashflow(float cashflow)
         {
             cashflows.Add(cashflow);

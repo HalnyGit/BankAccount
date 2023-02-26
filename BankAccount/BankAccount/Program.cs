@@ -37,7 +37,6 @@ while (!CloseApp)
     }
 
     var statistics = account.GetStatistics();
-    Console.WriteLine(statistics);
     Console.WriteLine("==========================================");
     Console.WriteLine($"Typ rachunku: {statistics.Scorring}");
     Console.WriteLine($"Saldo: {statistics.Saldo}");
