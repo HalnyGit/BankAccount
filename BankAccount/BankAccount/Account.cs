@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 
 
 namespace BankAccount
@@ -17,11 +16,27 @@ namespace BankAccount
             }
 		}
 
+        public override event CashflowAddedDelegate CashflowAdded;
+
         private string FileName
         {
             get
             {
-                return this.AccountID + ".txt";
+                string newPath = $"{Directory.GetCurrentDirectory()}\\Accounts";
+
+                try
+                {
+                    if (!Directory.Exists(newPath))
+                    {
+                        Directory.CreateDirectory(newPath);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+
+                return $"{newPath}\\{this.AccountID}.txt";
             }              
          }
 
@@ -36,10 +51,10 @@ namespace BankAccount
             {
                 writer.WriteLine(cashflow);
 
-                //if (GradeAdded != null)
-                //{
-                //    GradeAdded(this, new EventArgs());
-                //}
+                if (CashflowAdded != null)
+                {
+                    CashflowAdded(this, new EventArgs());
+                }
             }
         }
 
@@ -83,8 +98,5 @@ namespace BankAccount
                 }
             return statistics;
         }
-
-
-
     }
 }

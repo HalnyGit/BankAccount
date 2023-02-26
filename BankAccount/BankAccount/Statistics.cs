@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace BankAccount
+﻿namespace BankAccount
 {
     public class Statistics
     {

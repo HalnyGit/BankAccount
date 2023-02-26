@@ -1,6 +1,6 @@
 ﻿namespace BankAccount
 {
-    public abstract class AccountBase
+    public abstract class AccountBase : IAccount
     {
         public AccountBase(string accountID)
         {
@@ -10,8 +10,8 @@
 
         public string AccountID { get; private set; }
 
-        //public delegate void GradeAddedDelegate(object sender, EventArgs args);
-        //public abstract event GradeAddedDelegate GradeAdded;
+        public delegate void CashflowAddedDelegate(object sender, EventArgs args);
+        public abstract event CashflowAddedDelegate CashflowAdded;
 
         public abstract void AddCashflow(float cashflow);
 

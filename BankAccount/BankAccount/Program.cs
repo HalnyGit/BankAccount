@@ -1,12 +1,19 @@
 ﻿using BankAccount;
-using System.Runtime.InteropServices;
 
 bool CloseApp = false;
+
 while (!CloseApp)
 {
     Console.WriteLine("Podaj numer rachunku");
-    string nrRachunku = Console.ReadLine();
-    Account account = new Account(nrRachunku);
+    string accountID = Console.ReadLine();
+    Account account = new Account(accountID);
+
+    account.CashflowAdded += AccountCashflowAdded;
+
+    void AccountCashflowAdded(object sender, EventArgs args)
+    {
+        Console.WriteLine("Dodano operację do rachunku");
+    }
 
     Console.WriteLine("Dostępne operacje: Wpłata, Wypłata, Podgląd salda");
 
@@ -30,6 +37,7 @@ while (!CloseApp)
     }
 
     var statistics = account.GetStatistics();
+    Console.WriteLine(statistics);
     Console.WriteLine("==========================================");
     Console.WriteLine($"Typ rachunku: {statistics.Scorring}");
     Console.WriteLine($"Saldo: {statistics.Saldo}");
