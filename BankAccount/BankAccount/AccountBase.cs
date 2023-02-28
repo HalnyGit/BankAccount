@@ -21,6 +21,5 @@
         public abstract void AddCashflow(decimal grade);
 
         public abstract Statistics GetStatistics();
-
     }
 }

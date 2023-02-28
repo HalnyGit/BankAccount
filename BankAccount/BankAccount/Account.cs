@@ -6,7 +6,7 @@
             : base(accountID)
 		{
             if (!CheckFileExists(FileName))
-			{
+            {
                 using (FileStream fs = File.Create(FileName));
                 Console.WriteLine($"Utworzono nowy rachunek nr: {this.AccountID}");
             }

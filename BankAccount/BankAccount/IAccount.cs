@@ -15,6 +15,5 @@ namespace BankAccount
         event CashflowAddedDelegate CashflowAdded;
 
         Statistics GetStatistics();
-
     }
 }
