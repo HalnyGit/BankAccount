@@ -1,9 +1,5 @@
-﻿using System.IO;
-
-
-namespace BankAccount
+﻿namespace BankAccount
 {
-
 	public class Account : AccountBase
 	{
         public Account(string accountID)

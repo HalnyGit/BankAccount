@@ -7,14 +7,7 @@ while (!CloseApp)
     Console.WriteLine("Podaj numer rachunku");
     string accountID = Console.ReadLine();
     Account account = new Account(accountID);
-
     account.CashflowAdded += AccountCashflowAdded;
-
-    void AccountCashflowAdded(object sender, EventArgs args)
-    {
-        Console.WriteLine("Dodano operację do rachunku");
-    }
-
     Console.WriteLine("Dostępne operacje: Wpłata, Wypłata, Podgląd salda");
 
     while (true)
@@ -42,8 +35,7 @@ while (!CloseApp)
     Console.WriteLine($"Saldo: {statistics.Saldo}");
     Console.WriteLine($"Suma wpłat: {statistics.SumCashIn}");
     Console.WriteLine($"Suma wypłat: {statistics.SumCashOut}");
-    Console.WriteLine("==========================================");
-    
+    Console.WriteLine("==========================================");  
     Console.WriteLine("Naciśnij dowolny przycisk i kontynuuj dla innego rachunku lub 'q' - wyjście z programu"); 
     string command = Console.ReadLine();
     
@@ -54,5 +46,10 @@ while (!CloseApp)
     else
     {
         continue;
+    }
+
+    void AccountCashflowAdded(object sender, EventArgs args)
+    {
+        Console.WriteLine("Dodano operację do rachunku");
     }
 }

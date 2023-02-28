@@ -7,7 +7,6 @@
             this.AccountID = accountID;
         }
 
-
         public string AccountID { get; private set; }
 
         public delegate void CashflowAddedDelegate(object sender, EventArgs args);

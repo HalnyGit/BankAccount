@@ -13,7 +13,10 @@
                 float sumCashIn = 0;
                 foreach (var flow in cashflows)
                 {
-                    if(flow >= 0) { sumCashIn += flow; }
+                    if(flow >= 0)
+                    { 
+                        sumCashIn += flow;
+                    }
                 }
             return sumCashIn;
             }
@@ -26,7 +29,10 @@
                 float sumCashOut = 0;
                 foreach (var flow in cashflows)
                 {
-                    if (flow < 0) { sumCashOut += flow; }
+                    if (flow < 0)
+                    {
+                        sumCashOut += flow;
+                    }
                 }
                 return sumCashOut;
             }
