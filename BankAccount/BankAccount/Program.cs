@@ -35,10 +35,10 @@ while (!CloseApp)
     Console.WriteLine($"Saldo: {statistics.Saldo}");
     Console.WriteLine($"Suma wpłat: {statistics.SumCashIn}");
     Console.WriteLine($"Suma wypłat: {statistics.SumCashOut}");
-    Console.WriteLine("==========================================");  
-    Console.WriteLine("Naciśnij dowolny przycisk i kontynuuj dla innego rachunku lub 'q' - wyjście z programu"); 
+    Console.WriteLine("==========================================");
+    Console.WriteLine("Naciśnij dowolny przycisk i kontynuuj dla innego rachunku lub 'q' - wyjście z programu");
     string command = Console.ReadLine();
-    
+
     if (command == "q")
     {
         CloseApp = true;

@@ -1,16 +1,16 @@
 ﻿namespace BankAccount
 {
-	public class Account : AccountBase
-	{
+    public class Account : AccountBase
+    {
         public Account(string accountID)
             : base(accountID)
-		{
+        {
             if (!CheckFileExists(FileName))
             {
-                using (FileStream fs = File.Create(FileName));
+                using (FileStream fs = File.Create(FileName)) ;
                 Console.WriteLine($"Utworzono nowy rachunek nr: {this.AccountID}");
             }
-		}
+        }
 
         public override event CashflowAddedDelegate CashflowAdded;
 
@@ -33,13 +33,13 @@
                 }
 
                 return $"{newPath}\\{this.AccountID}.txt";
-            }              
-         }
+            }
+        }
 
         private static bool CheckFileExists(string fileName)
-		{
-			return File.Exists(fileName);
-		}
+        {
+            return File.Exists(fileName);
+        }
 
         public override void AddCashflow(float cashflow)
         {
@@ -83,15 +83,15 @@
             var statistics = new Statistics();
 
             using (var reader = File.OpenText(FileName))
+            {
+                var line = reader.ReadLine();
+                while (line != null)
                 {
-                    var line = reader.ReadLine();
-                    while (line != null)
-                    {
-                        var amount = float.Parse(line);
-                        statistics.AddCashflow(amount);
-                        line = reader.ReadLine();
-                    }
+                    var amount = float.Parse(line);
+                    statistics.AddCashflow(amount);
+                    line = reader.ReadLine();
                 }
+            }
             return statistics;
         }
     }
